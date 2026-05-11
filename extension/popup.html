@@ -1,12 +1,91 @@
 <!DOCTYPE html>
-<html>
-<body>
-  <h3>Harassment Detector</h3>
-  <p>Status: Running</p>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
 
-  <!-- TODO:
-  - show last analyzed message
-  - show risk level
-  -->
+    <title>Harassment Detector</title>
+
+    <style>
+        body {
+            width: 320px;
+            padding: 15px;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: #222;
+        }
+
+        .section {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+
+        .label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .value {
+            color: #333;
+            word-wrap: break-word;
+        }
+
+        #status {
+            color: green;
+            font-weight: bold;
+        }
+
+        #result {
+            font-weight: bold;
+        }
+
+        #score {
+            font-size: 18px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Harassment Detector</h2>
+
+         EXTENSION STATUS
+    <div class="section">
+        <div class="label">Extension Status</div>
+        <div class="value" id="status">Running</div>
+    </div>
+
+         LAST ANALYZED TEXT
+    <div class="section">
+        <div class="label">Last Analyzed Text</div>
+        <div class="value" id="lastText">
+            No text analyzed yet.
+        </div>
+    </div>
+
+         MODERATION RESULT
+    <div class="section">
+        <div class="label">Moderation Result</div>
+        <div class="value" id="result">
+            Waiting...
+        </div>
+    </div>
+
+         SEVERITY SCORE
+    <div class="section">
+        <div class="label">Severity Score</div>
+        <div class="value" id="score">
+            0.00
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+
 </body>
 </html>
