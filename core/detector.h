@@ -1,4 +1,6 @@
-// TODO:
-// - declare functions for detection
+#ifndef DETECTOR_H
+#define DETECTOR_H
 
-int detect_toxicity(char *text);
+char* analyze_text(const char* text);
+
+#endif
