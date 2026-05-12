@@ -1,0 +1,32 @@
+# THRESHOLDS (DECISION MAKING)
+SAFE_THRESHOLD = 0.45
+SUSPICIOUS_THRESHOLD = 0.75
+
+# WEIGHTS FOR RULE ENGINE
+WEIGHTS = {
+    "keyword": 0.5,
+    "caps": 0.3,
+    "repetition": 0.2
+}
+
+# SYSTEM LIMITS
+MAX_TEXT_LENGTH = 500
+MIN_TEXT_LENGTH = 1
+
+# PERFORMANCE SETTINGS
+ENABLE_C_MODULE = True
+FALLBACK_TO_PYTHON = True
+
+# KEYWORD BEHAVIOR SETTINGS
+MAX_KEYWORD_HITS = 5  # normalization cap
+
+# CONTEXT BOOST SETTINGS
+CONTEXT_BOOST = {
+    "high_caps": 0.1,
+    "high_repetition": 0.1,
+    "multiple_keywords": 0.2
+}
+
+# LOGGING
+ENABLE_LOGGING = True
+LOG_FILE = "../logs/requests.log"
