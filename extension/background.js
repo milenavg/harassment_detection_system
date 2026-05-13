@@ -42,11 +42,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
                     categories: safeResult.categories
                 });
 
-                // NOTIFY POPUP LIVE UPDATE
-                chrome.runtime.sendMessage({
-                    type: "NEW_RESULT",
-                    data: safeResult
-                });
 
                 sendResponse({ status: "ok", result: safeResult });
             })

@@ -1,9 +1,4 @@
-chrome.storage.local.set({
-    text: "example message",
-    label: "toxic",
-    score: 0.92,
-    categories: { harassment: true }
-});
+
 document.addEventListener("DOMContentLoaded", () => {
 
     // GET UI ELEMENTS

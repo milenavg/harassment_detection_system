@@ -4,7 +4,7 @@ import json
 
 MODULE_PATH = os.path.join(
     os.path.dirname(__file__),
-    "../c_module/detector.dll"
+    "../core/detector.dll"
 )
 
 # If DLL exists (Windows fallback)

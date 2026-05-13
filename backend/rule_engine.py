@@ -27,11 +27,9 @@ def analyze_text(text, c_features):
     # normalize keyword score
     keyword_score = min(keyword_hits / MAX_KEYWORD_HITS, 1.0)
 
-
     # C MODULE FEATURES
     caps_ratio = c_features.get("caps_ratio", 0)
     repetition_score = c_features.get("repetition_score", 0)
-
 
     # BASE WEIGHTED SCORE
     score = (
@@ -54,14 +52,27 @@ def analyze_text(text, c_features):
 
     score = min(score + context_boost, 1.0)
 
+    # =========================
+    # FINAL CLASSIFICATION FIX
+    # =========================
 
-    # FINAL CLASSIFICATION
-    if score >= SUSPICIOUS_THRESHOLD:
-        label = "TOXIC"
-    elif score >= SAFE_THRESHOLD:
-        label = "SUSPICIOUS"
-    else:
+    bad_word_count = keyword_hits
+
+    if bad_word_count == 0:
         label = "SAFE"
+        score = min(score, 0.1)
+
+    elif bad_word_count == 1:
+        label = "OFFENSIVE"
+        score = max(score, 0.45)
+
+    elif bad_word_count == 2:
+        label = "TOXIC"
+        score = max(score, 0.70)
+
+    else:
+        label = "HIGHLY TOXIC"
+        score = max(score, 0.95)
 
     # RESPONSE FORMAT
     return {
